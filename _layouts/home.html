@@ -1,0 +1,53 @@
+---
+layout: archive
+classes: wide
+---
+
+{{ content }}
+
+<div class="archive__item-research">My research interests are in the general area of mobile computing and human-centered computing, with a focus on their novel applications in networking (e.g., crowdsensing/crowdsourcing, QoE assessment, resource optimization), smart city (e.g., mobility enhancement), and security & privacy (e.g., user-centered security, privacy-aware computing). I attempt to explore those research topics with approaches within the core computer science and engineering discipline, including systems, signal processing, optimizations, and artificial intelligence, and with principles across disciplines, including physiology and economics. My research has been funded by NSF, DoT, and NIH. I am a recipient of the <b>NSF CRII Award</b> (2016) and <b>NSF CAREER Award</b> (2020). <br>
+<br>
+
+Before joining UTA, I worked as an Assistant Professor at University of Nevada, Reno for four years (2014 to 2018). I received my PhD at Mississippi State University in 2014. Before that, I received my master's degree from Beijing University of Posts and Telecommunications in 2010, and bachelor's degree from Sun Yat-Sen University in 2007. 
+
+
+{% capture notice-2 %}
+__Openings:__
+We are looking for self-motivated Ph.D. students who are committed to research.
+{% endcapture %}  
+
+<div class="notice--info">
+  {{ notice-2 | markdownify | remove: "<p>" | remove: "</p>"}}
+</div>
+
+<h3 class="archive__subtitle">Recent Publications</h3>
+{% assign entries_layout = page.entries_layout | default: 'list' %}
+{% assign count = 0 %}
+<div class="entries-{{ entries_layout }}">
+  {% for post in site.categories.publications %}
+    {% unless post.notshowfirst %}
+      {% include archive-single-researches2.html type=entries_layout %}
+      {% assign count = count | plus: 1 %}
+    {% endunless %}
+    {% if count == 10 %}
+      {% break %}
+    {% endif %}
+  {% endfor %}
+</div>
+
+ <!-- <h3 class="archive__subtitle">Recent News</h3>
+
+{% if paginator %}
+  {% assign posts = paginator.posts %}
+{% else %}
+  {% assign posts = site.posts %}
+{% endif %}
+
+{% assign entries_layout = page.entries_layout | default: 'list' %}
+<div class="entries-{{ entries_layout }}">
+  {% for post in site.categories.News %}
+    {% include archive-single.html type=entries_layout %}
+  {% endfor %}
+</div> -->
+
+<!-- {% include paginator.html %} -->
